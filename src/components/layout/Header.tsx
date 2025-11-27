@@ -15,9 +15,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import MobileDrawer from "./MobileDrawer";
 
-// import typefacefinal from "../assets/title.png"; // place title.png in /public
-
-import logo from "./logo.jpg"; // place logo.jpg in /public
+import logo from "./logo.jpg";
 
 const Header = () => {
   const pathname = usePathname();
@@ -31,10 +29,15 @@ const Header = () => {
 
   return (
     <nav className="flex justify-between items-center h-20 px-4 fixed top-0 left-0 right-0 bg-black/20 backdrop-blur-lg border-b border-white/10 z-[999] font-[Mooli]">
+
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/">
-          <Image src={logo} alt="Inter IIT logo" className="h-[70px] w-[70px]  rounded-full py-1" />
+          <Image
+            src={logo}
+            alt="Inter IIT logo"
+            className="h-[70px] w-[70px] rounded-full py-1"
+          />
         </Link>
       </div>
 
@@ -44,8 +47,9 @@ const Header = () => {
         onClick={toggleMobileDrawer}
       >
         <div
-          className={`transition-transform ${isMobileDrawerOpen ? "rotate-90 text-[var(--secondary-color)]" : ""
-            }`}
+          className={`transition-transform ${
+            isMobileDrawerOpen ? "rotate-90 text-[var(--secondary-color)]" : ""
+          }`}
         >
           &#9776;
         </div>
@@ -53,28 +57,38 @@ const Header = () => {
 
       {/* Desktop Nav Links */}
       <ul className="hidden lg:flex items-center space-x-4 text-white">
-        {/* Merch */}
+
         <li>
           <Link
             href="/iitk"
-            className={`relative hover:text-[var(--secondary-color)] ${pathname === "/merch" ? "text-[var(--secondary-color)]" : ""
-              }`}
+            className={`relative hover:text-[var(--secondary-color)] ${
+              pathname === "/merch" ? "text-[var(--secondary-color)]" : ""
+            }`}
           >
             About IITK
           </Link>
         </li>
 
-        {/* Schedule */}
         <li>
           <Link
             href="/gallery"
-            className={`relative hover:text-[var(--secondary-color)] ${pathname === "/gallery" ? "text-[var(--secondary-color)]" : ""
-              } ${isRootPage ? "hover:text-[var(--secondary-color)]" : ""}`}
+            className={`relative hover:text-[var(--secondary-color)] ${
+              pathname === "/gallery" ? "text-[var(--secondary-color)]" : ""
+            } ${isRootPage ? "hover:text-[var(--secondary-color)]" : ""}`}
           >
             Gallery
           </Link>
         </li>
-
+        <li>
+          <Link
+            href="/events"
+            className={`hover:text-[var(--secondary-color)] ${
+              pathname === "/events" ? "text-[var(--secondary-color)]" : ""
+            }`}
+          >
+            Events and Competetions
+          </Link>
+        </li>
         {/* Other Links */}
         <li>
           <Link
@@ -82,25 +96,24 @@ const Header = () => {
             className={`hover:text-[var(--secondary-color)] ${pathname === "/contact" ? "text-[var(--secondary-color)]" : ""
               }`}
           >
-            Contact
+            Core Team
           </Link>
         </li>
-        {/* <li>
+        <li>
           <Link
-            href="/hof"
+            href="/places"
             className={`hover:text-[var(--secondary-color)] ${
-              pathname === "/hof" ? "text-[var(--secondary-color)]" : ""
+              pathname === "/places" ? "text-[var(--secondary-color)]" : ""
             }`}
           >
-            Hall Of Fame
+            Venues and Places
           </Link>
-        </li> */}
+        </li>
 
         <li>
           <Link
             href="https://drive.google.com/file/d/1VUxhRSf0R2xDKwhzhKKDB2_uktCDeV6M/view?usp=drive_open"
-            className={`hover:text-[var(--secondary-color)] ${pathname === "https://drive.google.com/file/d/1VUxhRSf0R2xDKwhzhKKDB2_uktCDeV6M/view?usp=drive_open" ? "text-[var(--secondary-color)]" : ""
-              }`}
+            className="hover:text-[var(--secondary-color)]"
           >
             RuleBook
           </Link>
@@ -109,29 +122,29 @@ const Header = () => {
 
       {/* Social Icons */}
       <div className="hidden lg:flex space-x-3 text-white">
-        <a href="https://whatsapp.com/channel/0029Vak8LmD9mrGWHTsPIR3r">
+        {/* <a href="https://whatsapp.com/channel/0029Vak8LmD9mrGWHTsPIR3r">
           <FontAwesomeIcon icon={faWhatsapp} className="hover:text-[var(--secondary-color)]" />
-        </a>
-        <a href="https://www.instagram.com/antaragni.iitkanpur/">
+        </a> */}
+        <a href="https://www.instagram.com/interiit_culturals/">
           <FontAwesomeIcon icon={faInstagram} className="hover:text-[var(--secondary-color)]" />
         </a>
-        <a href="https://twitter.com/antaragni">
+        {/* <a href="https://twitter.com/antaragni">
           <FontAwesomeIcon icon={faXTwitter} className="hover:text-[var(--secondary-color)]" />
         </a>
         <a href="https://www.youtube.com/user/antaragniiitkanpur">
           <FontAwesomeIcon icon={faYoutube} className="hover:text-[var(--secondary-color)]" />
-        </a>
-        <a href="https://www.linkedin.com/company/antaragni-iit-kanpur/mycompany/">
+        </a> */}
+        <a href="https://www.linkedin.com/company/inter-iit-cultural-meet1/posts/?feedView=all">
           <FontAwesomeIcon icon={faLinkedin} className="hover:text-[var(--secondary-color)]" />
         </a>
-        <a href="https://www.facebook.com/antaragni.iitk/">
+        {/* <a href="https://www.facebook.com/antaragni.iitk/">
           <FontAwesomeIcon icon={faFacebook} className="hover:text-[var(--secondary-color)]" />
-        </a>
+        </a> */}
       </div>
 
       {/* Mobile Drawer */}
-
       <MobileDrawer isOpen={isMobileDrawerOpen} onClose={toggleMobileDrawer} />
+
     </nav>
   );
 };
